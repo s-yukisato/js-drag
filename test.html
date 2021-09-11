@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="p1" draggable="true">この要素はドラッグできます。</p>
+  <script>
+    function dragstart_handler(ev) {
+      // Add the target element's id to the data transfer object
+      ev.dataTransfer.setData("text/plain", ev.target.id);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Get the element by id
+      const element = document.getElementById("p1");
+      // Add the ondragstart event listener
+      element.addEventListener("dragstart", dragstart_handler);
+    });
+  </script>
+</body>
+
+</html>
